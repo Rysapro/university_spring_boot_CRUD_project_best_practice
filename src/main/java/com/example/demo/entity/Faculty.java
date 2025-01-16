@@ -11,11 +11,16 @@ public class Faculty {
     private Long id;
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
+
     public Faculty() {
     }
 
-    public Faculty(String name) {
+    public Faculty(String name, University university) {
         this.name = name;
+        this.university = university;
     }
 
     public Long getId() {
@@ -34,11 +39,20 @@ public class Faculty {
         this.name = name;
     }
 
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
+    }
+
     @Override
     public String toString() {
         return "Faculty{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", university=" + university +
                 '}';
     }
 }
