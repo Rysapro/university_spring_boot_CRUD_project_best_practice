@@ -40,4 +40,8 @@ public class StudentService {
         student.setFaculty(student.getFaculty());
         return studentRepository.save(student);
     }
+
+    public List<Student> findByName(String name){
+        return studentRepository.findByName(name);
+    }
 }
